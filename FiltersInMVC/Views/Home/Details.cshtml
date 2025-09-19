@@ -1,0 +1,85 @@
+﻿@model FiltersInMVC.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-light p-2 rounded shadow-sm">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index"><i class="bi bi-house-door-fill"></i> Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index"><i class="bi bi-people-fill"></i> Users</a>
+        </li>
+        <li class="breadcrumb-item active text-info fw-bold" aria-current="page">
+            <i class="bi bi-info-circle-fill"></i> Details
+        </li>
+    </ol>
+</nav>
+
+<!-- Page Title -->
+<div class="text-center my-4">
+    <h2 class="text-primary fw-bold">
+        <i class="bi bi-person-badge-fill"></i> User Details
+    </h2>
+    <hr class="w-25 mx-auto border-primary" />
+</div>
+
+<!-- Card Layout -->
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-gradient text-white text-center"
+                 style="background: linear-gradient(45deg, #17a2b8, #6610f2);">
+                <h4 class="mb-0"><i class="bi bi-person-lines-fill"></i> Profile Information</h4>
+            </div>
+
+            <div class="card-body p-4">
+                <dl class="row">
+                    <dt class="col-sm-3 fw-bold text-secondary">
+                        <i class="bi bi-person-fill text-primary"></i> Username
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Username)
+                    </dd>
+
+                    <dt class="col-sm-3 fw-bold text-secondary">
+                        <i class="bi bi-key-fill text-warning"></i> Password
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Password)
+                    </dd>
+
+                    <dt class="col-sm-3 fw-bold text-secondary">
+                        <i class="bi bi-envelope-fill text-danger"></i> Email
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt class="col-sm-3 fw-bold text-secondary">
+                        <i class="bi bi-telephone-fill text-success"></i> Phone
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Phone)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-between mt-4">
+            <a class="btn btn-outline-primary px-4"
+               asp-controller="Home" asp-action="Edit" asp-route-id="@Model?.Id">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
+
+            <a class="btn btn-dark px-4"
+               asp-controller="Home" asp-action="Index">
+                <i class="bi bi-arrow-left-circle"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>

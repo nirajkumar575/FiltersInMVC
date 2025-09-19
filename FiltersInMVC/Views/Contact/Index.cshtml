@@ -1,0 +1,66 @@
+﻿@model FiltersInMVC.Models.Contact
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm rounded-3">
+                <div class="card-header bg-primary text-white text-center fs-4">
+                    <i class="bi bi-envelope-fill me-2"></i>Contact Us
+                </div>
+                <div class="card-body p-4">
+
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-success">@ViewBag.Message</div>
+                    }
+
+                    <form asp-action="Index" method="post">
+                        @Html.AntiForgeryToken()
+                        <!-- Name -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-person-fill"></i></span>
+                            <input asp-for="Name" class="form-control" placeholder="Your Name" />
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger mb-2 d-block"></span>
+
+                        <!-- Email -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-envelope"></i></span>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Your Email" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger mb-2 d-block"></span>
+
+                        <!-- Subject -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-card-text"></i></span>
+                            <input asp-for="Subject" class="form-control" placeholder="Subject" />
+                        </div>
+                        <span asp-validation-for="Subject" class="text-danger mb-2 d-block"></span>
+
+                        <!-- Message -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-chat-left-text"></i></span>
+                            <textarea asp-for="Message" class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <span asp-validation-for="Message" class="text-danger mb-2 d-block"></span>
+
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="bi bi-send-fill me-2"></i>Send Message
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

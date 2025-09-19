@@ -1,0 +1,95 @@
+﻿@model FiltersInMVC.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-light p-2 rounded shadow-sm">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index"><i class="bi bi-house-door-fill"></i> Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index"><i class="bi bi-people-fill"></i> Users</a>
+        </li>
+        <li class="breadcrumb-item active text-info fw-bold" aria-current="page">
+            <i class="bi bi-pencil-square"></i> Edit
+        </li>
+    </ol>
+</nav>
+
+<!-- Page Title -->
+<div class="text-center my-4">
+    <h2 class="text-primary fw-bold">
+        <i class="bi bi-person-gear"></i> Edit User
+    </h2>
+    <hr class="w-25 mx-auto border-primary" />
+</div>
+
+<!-- Edit Form Card -->
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-gradient text-white text-center" style="background: linear-gradient(45deg, #007bff, #6610f2);">
+                <h4 class="mb-0"><i class="bi bi-person-lines-fill"></i> Update User Information</h4>
+            </div>
+
+            <div class="card-body p-4">
+                <form asp-controller="Home" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label fw-bold"><i class="bi bi-person-circle text-primary"></i> Username</label>
+                        <input asp-for="Username" class="form-control border-primary" placeholder="Enter username" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label fw-bold"><i class="bi bi-key-fill text-warning"></i> Password</label>
+                        <input asp-for="Password" class="form-control border-warning" placeholder="Enter password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label fw-bold"><i class="bi bi-envelope-fill text-danger"></i> Email</label>
+                        <input asp-for="Email" class="form-control border-danger" placeholder="Enter email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Phone" class="form-label fw-bold"><i class="bi bi-telephone-fill text-success"></i> Phone</label>
+                        <input asp-for="Phone" class="form-control border-success" placeholder="Enter phone number" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-success px-4">
+                            <i class="bi bi-check-circle-fill"></i> Save Changes
+                        </button>
+                        <a class="btn btn-outline-danger px-4"
+                           asp-controller="Home" asp-action="Index">
+                            <i class="bi bi-x-circle-fill"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Back to list -->
+        <div class="text-center mt-4">
+            <a class="btn btn-dark px-5"
+               asp-controller="Home" asp-action="Index">
+                <i class="bi bi-arrow-left-circle"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

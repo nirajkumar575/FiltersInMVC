@@ -1,0 +1,104 @@
+﻿@model FiltersInMVC.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-light p-2 rounded">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Account</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Register
+        </li>
+    </ol>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <!-- Card -->
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-info text-white text-center">
+                    <h3><i class="bi bi-person-plus-fill"></i> Register</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" id="myForm">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label fw-bold">
+                                <i class="bi bi-person-fill"></i> Username
+                            </label>
+                            <input asp-for="Username" class="form-control" placeholder="Enter your username" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-bold">
+                                <i class="bi bi-lock-fill"></i> Password
+                            </label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-bold">
+                                <i class="bi bi-envelope-fill"></i> Email
+                            </label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            <label asp-for="Phone" class="form-label fw-bold">
+                                <i class="bi bi-telephone-fill"></i> Phone
+                            </label>
+                            <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success w-50 me-2">
+                                <i class="bi bi-person-check-fill"></i> Register
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary w-50" onclick="clearForm()">
+                                <i class="bi bi-x-circle"></i> Clear
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="d-flex justify-content-between mt-4">
+                <a class="btn btn-outline-primary w-50 me-2"
+                   asp-controller="Account" asp-action="Login">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </a>
+                <a class="btn btn-outline-dark w-50"
+                   asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-arrow-left-circle"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    function clearForm() {
+        document.getElementById("myForm").reset();
+    }
+</script>

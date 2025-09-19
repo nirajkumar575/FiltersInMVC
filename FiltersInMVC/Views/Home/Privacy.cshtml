@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-light p-2 rounded shadow-sm">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">
+            Privacy Policy
+        </li>
+    </ol>
+</nav>
+
+<!-- Page Header -->
+<div class="text-center my-4">
+    <h2 class="text-primary fw-bold">
+        🔒 @ViewData["Title"]
+    </h2>
+    <p class="text-muted">Your privacy is important to us.</p>
+    <hr class="w-25 mx-auto border-primary" />
+</div>
+
+<!-- Content Card -->
+<div class="container">
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h5 class="card-title text-primary">Overview</h5>
+            <p class="card-text">
+                This is the Privacy Policy page of the application.
+                We respect your privacy and are committed to protecting any personal data you share with us.
+            </p>
+
+            <h5 class="card-title text-primary mt-4">What Data We Collect</h5>
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">👤 User information (name, email, phone)</li>
+                <li class="list-group-item">🔑 Login credentials (secured)</li>
+                <li class="list-group-item">📊 Application usage data</li>
+            </ul>
+
+            <h5 class="card-title text-primary mt-4">How We Use Your Data</h5>
+            <p class="card-text">
+                ✅ To provide and improve our services
+                ✅ To ensure security and prevent fraud
+                ✅ To communicate important updates
+            </p>
+
+            <h5 class="card-title text-primary mt-4">Your Rights</h5>
+            <p class="card-text">
+                You can request to access, update, or delete your personal data at any time.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Back Button -->
+<div class="text-center mt-4">
+    <a class="btn btn-secondary px-4" asp-controller="Home" asp-action="Index">
+        ⬅️ Back to Home
+    </a>
+</div>
